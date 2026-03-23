@@ -20,6 +20,7 @@ from core.views import (
     UserRegistrationView,
     UserViewSet,
 )
+
 router = DefaultRouter()
 router.register(r'autores', AutorViewSet, basename='autores')
 router.register(r'categorias', CategoriaViewSet, basename='categorias')
