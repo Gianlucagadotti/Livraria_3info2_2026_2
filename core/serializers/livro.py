@@ -7,3 +7,11 @@ class LivroSerializer(ModelSerializer):
     class Meta:
         model = Livro
         fields = '__all__'
+        depth = 1
+
+
+class LivroRetrieveSerializer(ModelSerializer):
+    class Meta:
+        model = Livro
+        fields = '__all__'
+        depth = 1
