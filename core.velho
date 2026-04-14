@@ -1,0 +1,140 @@
+[{
+  "model": "core.autor",
+  "pk": 1,
+  "fields": {
+    "nome": "Gustavo",
+    "email": "xihip49553@netoiu.com"
+  }
+},
+{
+  "model": "core.autor",
+  "pk": 2,
+  "fields": {
+    "nome": "Gustavo",
+    "email": "xihip49553@netoiu.com"
+  }
+},
+{
+  "model": "core.autor",
+  "pk": 3,
+  "fields": {
+    "nome": "Gustavo",
+    "email": "gustavo@gmail.com"
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 1,
+  "fields": {
+    "descricao": "Fantasia"
+  }
+},
+{
+  "model": "core.categoria",
+  "pk": 2,
+  "fields": {
+    "descricao": "Gustavo"
+  }
+},
+{
+  "model": "core.editora",
+  "pk": 1,
+  "fields": {
+    "nome": "Rocco"
+  }
+},
+{
+  "model": "core.editora",
+  "pk": 2,
+  "fields": {
+    "nome": "Darkside"
+  }
+},
+{
+  "model": "core.editora",
+  "pk": 3,
+  "fields": {
+    "nome": "Harper collins"
+  }
+},
+{
+  "model": "core.livro",
+  "pk": 2,
+  "fields": {
+    "titulo": "A ilha de Gustavo 3",
+    "isbn": "Gusta-vo",
+    "quantidade": 2,
+    "preco": "1.00",
+    "categoria": 1,
+    "editora": 1,
+    "capa": null,
+    "autores": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "core.livro",
+  "pk": 3,
+  "fields": {
+    "titulo": "gutavo o gustavo",
+    "isbn": "Gustavooo",
+    "quantidade": 18,
+    "preco": "1000.00",
+    "categoria": 1,
+    "editora": 3,
+    "capa": null,
+    "autores": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "core.livro",
+  "pk": 4,
+  "fields": {
+    "titulo": "A ilha de Gustavo 2",
+    "isbn": "Gustavo",
+    "quantidade": 67,
+    "preco": "10.00",
+    "categoria": 1,
+    "editora": 2,
+    "capa": null,
+    "autores": [
+      2
+    ]
+  }
+},
+{
+  "model": "core.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$7WWh9s6jMzry2Gbnx30H8d$wIZzPnIKrhbOpBi0Ny25dtOcRoOK+ileRqPtzv+CUQk=",
+    "last_login": "2026-04-06T18:39:01.553Z",
+    "is_superuser": true,
+    "email": "a@a.com",
+    "name": "Superusuário",
+    "is_active": true,
+    "is_staff": true,
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "core.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$1000000$gDw2xQZgwFkYpidganQBRU$8lNQVIM3rCWmyLCdPM0a3pcSHLmLYRZfhg1/snempV0=",
+    "last_login": null,
+    "is_superuser": true,
+    "email": "marcoandre@gmail.com",
+    "name": "Marco André Lopes Mendes",
+    "is_active": true,
+    "is_staff": true,
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]
