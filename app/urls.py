@@ -17,11 +17,11 @@ from rest_framework_simplejwt.views import (
 from core.views import (
     AutorViewSet,
     CategoriaViewSet,
+    CompraViewSet,
     EditoraViewSet,
     LivroViewSet,
     UserRegistrationView,
     UserViewSet,
-    CompraViewSet,
 )
 from uploader.router import router as uploader_router
 
