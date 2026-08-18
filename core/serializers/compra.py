@@ -1,4 +1,11 @@
-from rest_framework.serializers import CharField, ModelSerializer, SerializerMethodField
+from django.db import transaction
+from rest_framework.serializers import (
+    CharField,
+    CurrentUserDefault,
+    HiddenField,
+    ModelSerializer,
+    SerializerMethodField,
+)
 
 from core.models import Compra, ItensCompra
 
@@ -10,12 +17,13 @@ class ItensCompraCreateUpdateSerializer(ModelSerializer):
 
 
 class CompraCreateUpdateSerializer(ModelSerializer):
-    itens = ItensCompraCreateUpdateSerializer(many=True)
+    usuario = HiddenField(default=CurrentUserDefault())
 
     class Meta:
         model = Compra
-        fields = ('usuario', 'itens')
+        fields = ('id', 'usuario', 'itens')
 
+    @transaction.atomic
     def create(self, validated_data):
         itens_data = validated_data.pop('itens')
         compra = Compra.objects.create(**validated_data)
@@ -24,9 +32,10 @@ class CompraCreateUpdateSerializer(ModelSerializer):
         compra.save()
         return compra
 
+    @transaction.atomic
     def update(self, compra, validated_data):
-        itens_data = validated_data.pop('itens', [])
-        if itens_data:
+        itens_data = validated_data.pop('itens', None)
+        if itens_data is not None:
             compra.itens.all().delete()
             for item_data in itens_data:
                 ItensCompra.objects.create(compra=compra, **item_data)
@@ -34,7 +43,6 @@ class CompraCreateUpdateSerializer(ModelSerializer):
 
 
 class ItensCompraListSerializer(ModelSerializer):
-
     livro = CharField(source='livro.titulo', read_only=True)
 
     class Meta:
@@ -44,7 +52,6 @@ class ItensCompraListSerializer(ModelSerializer):
 
 
 class CompraListSerializer(ModelSerializer):
-
     usuario = CharField(source='usuario.email', read_only=True)
     itens = ItensCompraListSerializer(many=True, read_only=True)
 
@@ -61,7 +68,7 @@ class ItensCompraSerializer(ModelSerializer):
 
     class Meta:
         model = ItensCompra
-        fields = ('livro', 'quantidade', 'total')
+        fields = ('livro', 'quantidade', 'total', 'preco')
         depth = 1
 
 
