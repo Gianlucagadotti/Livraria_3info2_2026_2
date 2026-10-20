@@ -14,7 +14,7 @@ from core.models import Compra, ItensCompra
 class ItensCompraCreateUpdateSerializer(ModelSerializer):
     class Meta:
         model = ItensCompra
-        fields = ('livro', 'quantidade', 'preco')  # mudou
+        fields = ('livro', 'quantidade')  # mudou
 
     def validate_quantidade(self, quantidade):
         if quantidade <= 0:
@@ -61,7 +61,7 @@ class ItensCompraListSerializer(ModelSerializer):
 
     class Meta:
         model = ItensCompra
-        fields = ('quantidade', 'preco', 'livro')  # mudou
+        fields = ('quantidade', 'livro', 'preco')  # mudou
         depth = 1
 
 
@@ -71,7 +71,7 @@ class CompraListSerializer(ModelSerializer):
 
     class Meta:
         model = Compra
-        fields = ('id', 'usuario', 'itens', 'preco')
+        fields = ('id', 'usuario', 'itens', 'total')
 
 
 class ItensCompraSerializer(ModelSerializer):
